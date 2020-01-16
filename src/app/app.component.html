@@ -1,17 +1,13 @@
 <h1>{{ title }} </h1>
 
-<div *ngIf="selectedPizza">
-  <h3>{{ selectedPizza.name }}</h3>
-  
-  <div>{{selectedPizza.id}}</div>
-  
-  <div>{{selectedPizza.price}}</div>
-  
-  <!-- ngModel est une directive d'input -->
-  <input [(ngModel)]="selectedPizza.name">
-</div>
+
 
 <!-- <input [value]="selectedPizza.name" (keyup)="selectedPizza.name" = $event.target.value"> -->
+
+<!-- ICI LES CROCHETS AUTOUR DE PIZZA SONT LA POUR ACTIVER LE JS -->
+<app-pizza [pizza]="selectedPizza"></app-pizza>
+
+<app-author [author]="authorTable"></app-author>
 
 <h2>Les Pizzas</h2>
 

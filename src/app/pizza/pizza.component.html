@@ -1,0 +1,12 @@
+<p>pizza works!</p>
+
+<div *ngIf="pizza">
+    <h3>{{ pizza.name }}</h3>
+
+    <div>{{pizza.id}}</div>
+
+    <div>{{pizza.price}}</div>
+
+    <!-- ngModel est une directive d'input -->
+    <input [(ngModel)]="pizza.name">
+</div>
