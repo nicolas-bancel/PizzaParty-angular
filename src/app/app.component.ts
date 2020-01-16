@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Pizza } from './models/pizza.model';
 import { Author } from './models/author.model';
+import { Ingredient } from './models/ingredient-list.model';
 
 
 const PIZZAS: Pizza[] = [
@@ -19,6 +20,7 @@ export class AppComponent {
   title = "PizzaParty";
 
   selectedPizza: Pizza;
+  selectedIngredient: Ingredient;
 
   pizzas: Pizza[] = PIZZAS;
 
@@ -34,5 +36,25 @@ export class AppComponent {
     console.log(pizza);
     this.selectedPizza = pizza;
   }
+
+
+  ingredients: Ingredient[] = [{
+    name: 'Tomate',
+    image: 'tomate.jpg',
+    weight: '60g',
+    price: 2
+},
+{
+    name: 'olive',
+    image: 'olive.jpg',
+    weight: '6g',
+    price: 1
+}];
+
+  selectIngredient(event: Ingredient) {
+    // console.log(event);
+    this.selectedIngredient = event;
+  }
+
 }
 

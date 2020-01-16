@@ -1,0 +1,13 @@
+<p>ingredient-list works!</p>
+
+<ul>
+    <li *ngFor="let ingredient of ingredients"(click)="choseIngredient(ingredient)">
+        {{ ingredient | json }} <br /><br /><br />
+        <span>{{ ingredient.name }}</span> <br/>
+        <img [src]="'/assets/ingredients/' + ingredient.image" alt="" width="100px"/> <br />
+        <span>{{ ingredient.weight }}</span> <br />
+        <span>{{ ingredient.price }}</span> <br /><br /><br />
+    </li>
+</ul>
+
+

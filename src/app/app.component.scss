@@ -6,8 +6,28 @@ li {
 
     transition: 0.5s;
 
-    &:hover {
+    &:hover, &.selected {
         background-color: $color;
         box-shadow: 1px 1px 1px 1px lightgray;
     }
+}
+
+.card {
+    background-color: #000;
+    color: #fff;
+
+    transition: 0.5s;
+
+    &:hover, &.selected {
+        background-color: $color;
+        box-shadow: 1px 1px 1px 1px lightgray;
+
+        animation: bounce 0.7s ease infinite;
+    }
+}
+
+@keyframes bounce{
+     from {top: 0px;}
+     50%  {top: -20px;}
+     to   {top: 0px;}
 }

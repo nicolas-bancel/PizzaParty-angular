@@ -1,3 +1,7 @@
+<app-menu [title]="title" color="dark"></app-menu>
+
+<div class="container">
+
 <h1>{{ title }} </h1>
 
 
@@ -7,12 +11,33 @@
 <!-- ICI LES CROCHETS AUTOUR DE PIZZA SONT LA POUR ACTIVER LE JS -->
 <app-pizza [pizza]="selectedPizza"></app-pizza>
 
-<app-author [author]="authorTable"></app-author>
-
 <h2>Les Pizzas</h2>
 
-<ul>
-  <li *ngFor="let pizza of pizzas"(click)="onSelect(pizza)">
+<!-- <ul>
+  <li *ngFor="let pizza of pizzas"
+  (click)="onSelect(pizza)"
+  [class.selected]="pizza === selectedPizza">
     {{ pizza.name }}
   </li>
-</ul>
+</ul> -->
+
+<div class="row">
+  <div *ngFor="let pizza of pizzas" (click)="onSelect(pizza)" class="col-3">
+    <div class="card" [class.selected]="pizza === selectedPizza">
+      <div class="card-body">
+        <h5 class="card-title">{{ pizza.name }}</h5>
+        <p *ngIf="selectedIngredient">Vous avez choisis : {{ selectedIngredient.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<h2>Les TPs:</h2>
+
+<app-author [author]="authorTable"></app-author>
+
+<app-ingredient-list [ingredients]="ingredients" (select)="selectIngredient($event)"></app-ingredient-list>
+
+</div>
