@@ -1,0 +1,46 @@
+<p>home works!</p>
+
+<h1> Accueil </h1>
+
+
+
+<!-- <input [value]="selectedPizza.name" (keyup)="selectedPizza.name" = $event.target.value"> -->
+
+<!-- ICI LES CROCHETS AUTOUR DE PIZZA SONT LA POUR ACTIVER LE JS -->
+<app-pizza [pizza]="selectedPizza"></app-pizza>
+
+<h2>Les Pizzas</h2>
+
+<!-- <ul>
+  <li *ngFor="let pizza of pizzas"
+  (click)="onSelect(pizza)"
+  [class.selected]="pizza === selectedPizza">
+    {{ pizza.name }}
+  </li>
+</ul> -->
+
+<div class="row">
+    <div *ngFor="let pizza of pizzas" (click)="onSelect(pizza)" class="col-3">
+        <div class="card" [class.selected]="pizza === selectedPizza">
+            <div class="card-body">
+                <h5 class="card-title">{{ pizza.name }}</h5>
+                <span *ngFor="let selectedIngredient of selectedIngredients; index as i"
+                    class="badge badge-{{selectedIngredient.color}}">{{ selectedIngredient.name }} <span (click)="deleteIngredient(i, $event)">X</span>
+                </span>
+                <!-- <p *ngIf="selectedIngredient">Vous avez choisis : {{ selectedIngredient.name }}</p> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<h2>Les TPs:</h2>
+
+<app-author [author]="authorTable"></app-author>
+
+<app-ingredient-list [ingredients]="ingredients" (select)="selectIngredient($event)"></app-ingredient-list>
+
+<h2>Les pipes</h2>
+
+<p>{{ 'Hello' | test:'==':'==' }}</p>
