@@ -2,13 +2,7 @@ import { Component } from '@angular/core';
 import { Pizza } from "../models/pizza.model";
 import { Author } from "../models/author.model";
 import { Ingredient } from "../models/ingredient-list.model";
-
-const PIZZAS: Pizza[] = [
-  { id: 1, name: "Reine", price: 12 },
-  { id: 2, name: "4 fromages", price: 13 },
-  { id: 3, name: "Orientale", price: 11 },
-  { id: 4, name: "Cannibale", price: 9 }
-];
+import { PizzaService} from "../pizza.service";
 
 @Component({
   selector: "app-home",
@@ -21,7 +15,9 @@ export class HomeComponent {
   selectedPizza: Pizza;
   selectedIngredients: Ingredient[] = [];
 
-  pizzas: Pizza[] = PIZZAS;
+  pizzas: Pizza[] = [];
+
+  number = 2;
 
   authorTable: Author = {
     id: 1,
@@ -65,4 +61,14 @@ export class HomeComponent {
     //on supprime l'index du tableau
     this.selectedIngredients.splice(index, 1);
   }
+
+  constructor(private pizzaService: PizzaService) {
+    console.log(this.pizzas);
+    
+  }
+
+  ngOnInit() {
+    this.pizzaService.getPizzas().then(pizzas => this.pizzas = pizzas);
+  }
+
 }

@@ -1,0 +1,15 @@
+<p>pizza-list works!</p>
+
+<div class="row">
+    <div *ngFor="let pizza of pizzas" (click)="onSelect(pizza)" class="col-3 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ pizza.name }}</h5>
+                <p>HT: {{pizza.price}}€</p>
+                <p>TTC: {{pizza.price | tva}}</p>
+                <a class="btn btn-primary" routerLink="/pizza/{{pizza.id}}">Voir la pizza</a>
+                <!-- <p *ngIf="selectedIngredient">Vous avez choisis : {{ selectedIngredient.name }}</p> -->
+            </div>
+        </div>
+    </div>
+</div>

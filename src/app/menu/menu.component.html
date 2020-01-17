@@ -4,18 +4,18 @@
     [ngClass]="'navbar-'+color+' bg-'+color"
 >
     <div class="container">
-        <a class="navbar-brand" href="#">{{ title }} {{ isCollapsed | json }}</a>
+        <a class="navbar-brand" routerLink="/">{{ title }} {{ isCollapsed | json }}</a>
         <button class="navbar-toggler" type="button" (click)="toggleCollapse()">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" [class.show]="isCollapsed">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Home</a>
-                <a class="nav-item nav-link" href="#">Features</a>
-                <a class="nav-item nav-link" href="#">Pricing</a>
+                <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+                <a class="nav-item nav-link" routerLink="/pizza" routerLinkActive="active" [routerLinkActiveOptions]="{exact: false}">Nos pizzas</a>
+                <a class="nav-item nav-link" routerLink="#" routerLinkActive="active">Pricing</a>
             </div>
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="#" (click)="switchTheme()">Switch theme</a>
+                <span class="nav-item nav-link" href="#" (click)="switchTheme()">Switch theme</span>
                 <!-- (click)="color = ('light' === color) ? 'dark' : 'light'" -->
 
             </div>
