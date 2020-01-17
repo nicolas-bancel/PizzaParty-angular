@@ -26,7 +26,11 @@
     <div class="card" [class.selected]="pizza === selectedPizza">
       <div class="card-body">
         <h5 class="card-title">{{ pizza.name }}</h5>
-        <p *ngIf="selectedIngredient">Vous avez choisis : {{ selectedIngredient.name }}</p>
+        <span *ngFor="let selectedIngredient of selectedIngredients; index as i" class="badge badge-{{selectedIngredient.color}}">{{ selectedIngredient.name }} <span (click)="deleteIngredient(i, $event)">
+            X
+          </span>
+        </span>
+        <!-- <p *ngIf="selectedIngredient">Vous avez choisis : {{ selectedIngredient.name }}</p> -->
       </div>
     </div>
   </div>
@@ -39,5 +43,9 @@
 <app-author [author]="authorTable"></app-author>
 
 <app-ingredient-list [ingredients]="ingredients" (select)="selectIngredient($event)"></app-ingredient-list>
+
+<h2>Les pipes</h2>
+
+<p>{{ 'Hello' | test:'==':'==' }}</p>
 
 </div>

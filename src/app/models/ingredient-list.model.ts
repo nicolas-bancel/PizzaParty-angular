@@ -3,4 +3,5 @@ export interface Ingredient {
   image: string;
   weight: string;
   price: number;
+  color: string;
 }

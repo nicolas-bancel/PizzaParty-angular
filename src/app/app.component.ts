@@ -20,7 +20,7 @@ export class AppComponent {
   title = "PizzaParty";
 
   selectedPizza: Pizza;
-  selectedIngredient: Ingredient;
+  selectedIngredients: Ingredient[] = [];
 
   pizzas: Pizza[] = PIZZAS;
 
@@ -42,18 +42,28 @@ export class AppComponent {
     name: 'Tomate',
     image: 'tomate.jpg',
     weight: '60g',
-    price: 2
+    price: 2,
+    color: 'danger'
 },
 {
     name: 'olive',
     image: 'olive.jpg',
     weight: '6g',
-    price: 1
+    price: 1,
+    color: 'dark'
 }];
 
   selectIngredient(event: Ingredient) {
     // console.log(event);
-    this.selectedIngredient = event;
+    if (!this.selectedIngredients.includes(event)) {
+      this.selectedIngredients.push(event);
+    } 
+  }
+
+  deleteIngredient(index: number, event) {
+    event.stopPropagation();
+    //on supprime l'index du tableau
+    this.selectedIngredients.splice(index, 1);
   }
 
 }

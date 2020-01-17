@@ -5,7 +5,7 @@
 
     <div>{{pizza.id}}</div>
 
-    <div>{{pizza.price}}</div>
+    <div>{{pizza.price}}€ HT - {{pizza.price | tva:'65'}} TTC </div>
 
     <!-- ngModel est une directive d'input -->
     <input [(ngModel)]="pizza.name">

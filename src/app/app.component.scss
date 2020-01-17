@@ -19,6 +19,7 @@ li {
     transition: 0.5s;
 
     &:hover, &.selected {
+        cursor: pointer;
         background-color: $color;
         box-shadow: 1px 1px 1px 1px lightgray;
 
@@ -26,8 +27,8 @@ li {
     }
 }
 
-@keyframes bounce{
-     from {top: 0px;}
-     50%  {top: -20px;}
-     to   {top: 0px;}
-}
+// @keyframes bounce{
+//      from {top: 0px;}
+//      50%  {top: -20px;}
+//      to   {top: 0px;}
+// }
